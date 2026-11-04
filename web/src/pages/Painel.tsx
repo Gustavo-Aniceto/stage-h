@@ -8,7 +8,7 @@ import type { ActivityRow, DashboardSummary } from "../lib/types";
 import { PlateSearch } from "../components/PlateSearch";
 import { StatusBadge } from "../components/StatusBadge";
 import { CivicStage } from "../components/CivicStage";
-import { OFICINA, enderecoTexto, whatsappLink } from "../lib/oficina";
+import { OFICINA, enderecoTexto } from "../lib/oficina";
 
 const Ico = ({ d }: { d: string }) => <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden fill="currentColor"><path d={d} /></svg>;
 const ICONS = {
@@ -64,15 +64,6 @@ export function Painel() {
     <div className="page page-painel">
       <section className="sh-hero" aria-labelledby="h-boas-vindas">
         <CivicStage />
-        <nav className="sh-hero-nav" aria-label="Site da oficina">
-          <Link to="/" aria-current="page">Início</Link>
-          <Link to="/servicos">Serviços</Link>
-          <Link to="/contato">Contato e orçamento</Link>
-          <a className="btn btn-primary" href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden fill="currentColor"><path d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2Zm5.800 14.100c-.2.700-1.300 1.300-1.800 1.300-.5.100-1.100.100-1.800-.1-.4-.1-.9-.3-1.600-.6-2.800-1.200-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.300 0 .5l-.3.400-.4.400c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.8-1c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400Z" /></svg>
-            WhatsApp
-          </a>
-        </nav>
         <div className="sh-hero-copy">
           <p className="sh-greet"><span aria-hidden />Bem-vindo, {primeiroNome}!</p>
           <h1 id="h-boas-vindas" className="sh-title">{OFICINA.nome}</h1>

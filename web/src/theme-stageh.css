@@ -193,12 +193,6 @@ a.list-row:hover { background: rgba(139, 0, 255, .12); }
 .sh-br { display: inline; }
 .sh-hero-site .hero-lead { max-width: 34cqw; margin: 0; font-size: clamp(.95rem, .3rem + 1.35cqw, 1.2rem); }
 
-/* Menu do hero do painel (atalhos para o site e WhatsApp), como na arte de referência */
-.sh-hero-nav { position: absolute; z-index: 3; top: 1.3cqw; right: 2.2cqw; display: flex; align-items: center; gap: clamp(.9rem, 2.4cqw, 2rem); font-size: clamp(.82rem, .3rem + 1.15cqw, 1.05rem); }
-.sh-hero-nav a:not(.btn) { color: #fff; text-decoration: none; padding: .35rem 0; border-bottom: 2px solid transparent; }
-.sh-hero-nav a:not(.btn):hover { border-bottom-color: var(--violeta-2); }
-.sh-hero-nav a[aria-current="page"] { border-bottom-color: var(--neon); }
-.sh-hero-nav .btn { min-height: 40px; padding: .4rem 1rem; font-size: inherit; }
 
 
 /* Faixa endereço / horário / telefone */
@@ -293,7 +287,6 @@ a.list-row:hover { background: rgba(139, 0, 255, .12); }
    espaço, empilha antes (1200px); site: 1100px. Esses números precisam bater com `stackAt` do <CivicStage>. */
 @media (max-width: 1200px) {
   .sh-hero:not(.sh-hero-site) { aspect-ratio: auto; display: block; }
-  .sh-hero:not(.sh-hero-site) .sh-hero-nav { display: none; }
   .sh-hero:not(.sh-hero-site)::after { display: none; }
   .sh-hero:not(.sh-hero-site) .sh-stage { position: relative; inset: auto; }
   .sh-hero:not(.sh-hero-site) .sh-poster { height: auto; aspect-ratio: 1046 / 504; }
