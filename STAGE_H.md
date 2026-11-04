@@ -26,8 +26,10 @@ Chave de sessão `innovi-auth`, banco IndexedDB da fila offline `innovi-offline`
 fotos na fila e quebraria os logins existentes. O usuário nunca vê esses nomes.
 
 ## Pendências (precisam de informação da oficina)
-1. **Endereço**: nenhum foi inventado. Preencher `VITE_OFICINA_ENDERECO`, `VITE_OFICINA_BAIRRO`, `VITE_OFICINA_CEP`
-   (Vercel ou `.env.local`). Enquanto vazio, site e documentos omitem a linha; no painel aparece "Não configurado".
+1. **Endereço**: nenhum foi inventado. Enquanto `VITE_OFICINA_ENDERECO` estiver vazio, painel e site mostram
+   "Sem local fixo no momento" (constante `ENDERECO_SEM_LOCAL` em `web/src/lib/oficina.ts`); os documentos A4 omitem a linha
+   e o link "Ver no mapa" não aparece. Para definir o endereço: `VITE_OFICINA_ENDERECO`, `VITE_OFICINA_BAIRRO`, `VITE_OFICINA_CEP`
+   (Vercel ou `.env.local`).
 2. **Imagem do hero em alta resolução**: a arte de referência tem 1416×504 px no hero; em telas muito grandes ou
    retina ela fica um pouco macia. Se houver o arquivo original em maior resolução, basta substituir os dois `.webp`
    (mesma proporção 1416×504; o mobile é o recorte x=370…1416 da mesma imagem).

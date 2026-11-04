@@ -8,7 +8,7 @@ import type { ActivityRow, DashboardSummary } from "../lib/types";
 import { PlateSearch } from "../components/PlateSearch";
 import { StatusBadge } from "../components/StatusBadge";
 import { CivicStage } from "../components/CivicStage";
-import { OFICINA, whatsappLink } from "../lib/oficina";
+import { OFICINA, enderecoTexto, whatsappLink } from "../lib/oficina";
 
 const Ico = ({ d }: { d: string }) => <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden fill="currentColor"><path d={d} /></svg>;
 const ICONS = {
@@ -59,7 +59,6 @@ export function Painel() {
   useEffect(() => { load(); }, []);
 
   const primeiroNome = profile?.full_name.split(" ")[0];
-  const endereco = [OFICINA.endereco, OFICINA.bairro].filter(Boolean).join(" — ");
 
   return (
     <div className="page page-painel">
@@ -95,7 +94,7 @@ export function Painel() {
         <div>
           <InfoIcon><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.800 7-13a7 7 0 0 0-7-7Zm0 9.500A2.500 2.500 0 1 1 12 6.500a2.500 2.500 0 0 1 0 5Z" /></InfoIcon>
           <dt>Endereço</dt>
-          <dd>{endereco || <span className="muted">Não configurado (veja STAGE_H.md)</span>}</dd>
+          <dd>{enderecoTexto()}</dd>
         </div>
         <div>
           <InfoIcon><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.200 14.200L11 13V7h1.500v5.200l4.500 2.700-.8 1.300Z" /></InfoIcon>

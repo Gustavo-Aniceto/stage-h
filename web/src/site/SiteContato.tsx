@@ -2,7 +2,7 @@ import { useState, type FormEvent } from "react";
 import { useSearchParams } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import { isValidPhone, maskPhone, normalizePlate } from "../lib/format";
-import { OFICINA, SERVICOS, enderecoLinha, whatsappLink } from "../lib/oficina";
+import { OFICINA, SERVICOS, enderecoTexto, whatsappLink } from "../lib/oficina";
 import { SelectField, TextArea, TextField } from "../components/Field";
 
 export function SiteContato() {
@@ -46,7 +46,7 @@ export function SiteContato() {
       <div>
         <h1>Contato e orçamento</h1>
         <dl className="contact-info">
-          {enderecoLinha() && <div><dt>Endereço</dt><dd>{enderecoLinha()}{OFICINA.mapsUrl && <><br /><a href={OFICINA.mapsUrl} target="_blank" rel="noopener noreferrer">Abrir no mapa</a></>}</dd></div>}
+          <div><dt>Endereço</dt><dd>{enderecoTexto()}{OFICINA.mapsUrl && <><br /><a href={OFICINA.mapsUrl} target="_blank" rel="noopener noreferrer">Abrir no mapa</a></>}</dd></div>
           <div><dt>Telefone e WhatsApp</dt><dd><a href={`tel:+${OFICINA.whatsapp}`}>{OFICINA.telefone}</a></dd></div>
           <div><dt>Horário</dt><dd>{OFICINA.horario.map((h) => <span key={h.dias}>{h.dias}: {h.horas}<br /></span>)}</dd></div>
           <div><dt>Pagamento</dt><dd>{OFICINA.pagamentos.join(", ")}</dd></div>

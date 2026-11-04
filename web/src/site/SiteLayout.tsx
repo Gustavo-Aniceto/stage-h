@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
-import { OFICINA, enderecoLinha, feriados, whatsappLink } from "../lib/oficina";
+import { OFICINA, enderecoTexto, feriados, whatsappLink } from "../lib/oficina";
 import { BrandLogo } from "../components/Brand";
 
 export function SiteLayout() {
@@ -25,7 +25,7 @@ export function SiteLayout() {
         <div>
           <strong>{OFICINA.nome}</strong> {OFICINA.subtitulo}
           <p>{OFICINA.especialidade}<br />{OFICINA.atendimento}</p>
-          {enderecoLinha() && <p>{enderecoLinha()}</p>}
+          <p>{enderecoTexto()}</p>
           {OFICINA.mapsUrl && <a href={OFICINA.mapsUrl} target="_blank" rel="noopener noreferrer">Ver no mapa</a>}
         </div>
         <div>

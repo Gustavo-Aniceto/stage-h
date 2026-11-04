@@ -37,6 +37,14 @@ export function enderecoLinha(): string {
   return [OFICINA.endereco, OFICINA.bairro, OFICINA.cep ? `CEP ${OFICINA.cep}` : ""].filter(Boolean).join(", ");
 }
 
+/** Texto exibido no endereço enquanto a oficina não tiver um local fixo configurado (VITE_OFICINA_ENDERECO). */
+export const ENDERECO_SEM_LOCAL = "Sem local fixo no momento";
+
+/** Endereço para mostrar na tela: o configurado ou, se não houver, "Sem local fixo no momento". */
+export function enderecoTexto(): string {
+  return enderecoLinha() || ENDERECO_SEM_LOCAL;
+}
+
 export const SERVICOS = [
   { slug: "mecanica", nome: "Mecânica multimarcas", texto: "Manutenção e reparo para carros nacionais e importados, com diagnóstico antes de qualquer troca." },
   { slug: "injecao", nome: "Injeção eletrônica", texto: "Leitura com scanner, testes de sensores, bicos e corpo de borboleta para encontrar a causa da falha." },

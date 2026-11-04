@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { OFICINA, SERVICOS, enderecoLinha, whatsappLink } from "../lib/oficina";
+import { OFICINA, SERVICOS, enderecoTexto, whatsappLink } from "../lib/oficina";
 import { CivicStage } from "../components/CivicStage";
 import { useOpenNow } from "./SiteLayout";
 
@@ -22,7 +22,7 @@ export function SiteHome() {
       </section>
 
       <dl className="sh-info sh-info-site" aria-label="Dados da oficina">
-        {enderecoLinha() && <div><dt>Endereço</dt><dd>{enderecoLinha()}</dd></div>}
+        <div><dt>Endereço</dt><dd>{enderecoTexto()}</dd></div>
         <div><dt>Horário</dt><dd>{OFICINA.horario[0].dias}, {OFICINA.horario[0].horas}</dd></div>
         <div><dt>Telefone</dt><dd><a href={`tel:+${OFICINA.whatsapp}`}>{OFICINA.telefone}</a></dd></div>
       </dl>
