@@ -37,8 +37,8 @@ fotos na fila e quebraria os logins existentes. O usuário nunca vê esses nomes
    macio em telas grandes. O ideal é PNG transparente ou SVG em alta.
 4. **Backend**: Supabase/Edge Functions ainda são os do projeto Innovi. Para a Stage H, criar projeto próprio
    (aplicar `supabase/migrations`) e ajustar `.env.local`, `APP_ALLOWED_ORIGINS` (CORS) e o domínio.
-5. **Feriados/cidade**: o indicador "aberto agora" usa feriados de SP e de Guarulhos (`oficina.ts`).
-6. Lista de serviços e formas de pagamento do site ainda são as da Innovi; confirmar com a Stage H.
+5. **Feriados/cidade**: o indicador "aberto agora" usa feriados nacionais, de SP (estado) e de Arujá: aniversário da cidade (08/06) e padroeiro Senhor Bom Jesus (06/08) (`oficina.ts`).
+6. Formas de pagamento já são as da Stage H (crédito, débito, Pix e dinheiro). A lista de serviços do site ainda é a da Innovi; confirmar com a Stage H.
 
 ## Para rodar
 ```

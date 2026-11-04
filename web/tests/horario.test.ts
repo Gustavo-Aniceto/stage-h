@@ -2,7 +2,9 @@ import { openStatus } from "../src/site/SiteLayout";
 import { feriados } from "../src/lib/oficina";
 const cases: [string, string][] = [
   ["2026-10-27T10:00", "Aberto agora"],                                   // terça comum
-  ["2026-12-08T10:00", "Fechado hoje (Aniversário de Guarulhos), abre amanhã"],
+  ["2026-06-08T10:00", "Fechado hoje (Aniversário de Arujá), abre amanhã"],
+  ["2026-08-06T10:00", "Fechado hoje (Dia do Senhor Bom Jesus (padroeiro de Arujá)), abre amanhã"],
+  ["2026-12-08T10:00", "Aberto agora"],                                   // 08/12 era feriado de Guarulhos; agora é dia normal
   ["2026-04-03T10:00", "Fechado hoje (Sexta-feira Santa), abre segunda"],
   ["2026-06-04T10:00", "Fechado hoje (Corpus Christi), abre amanhã"],
   ["2026-11-20T10:00", "Fechado hoje (Consciência Negra), abre segunda"],

@@ -26,7 +26,7 @@ export const OFICINA = {
     { dias: "Segunda a sexta", horas: "09h às 18h" },
     { dias: "Sábado e domingo", horas: "Fechado" },
   ],
-  pagamentos: ["Cartão de crédito", "Cartão de débito", "Aproximação", "Pix", "Dinheiro"],
+  pagamentos: ["Cartão de crédito", "Cartão de débito", "Pix", "Dinheiro"],
   mapsUrl: endereco
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent([endereco, bairro].filter(Boolean).join(", "))}`
     : "",
@@ -60,8 +60,9 @@ export function whatsappLink(texto = "Olá! Vim pelo site da Stage H."): string 
 }
 
 /**
- * Feriados em que a oficina fecha (nacionais, estadual de SP e municipais de Guarulhos,
- * conforme edital do TJSP para 2026: Sexta-feira Santa, Corpus Christi, 20/11 e 08/12).
+ * Feriados em que a oficina fecha: nacionais, estadual de SP (09/07) e municipais de Arujá
+ * (08/06 aniversário da cidade e 06/08 Dia do Padroeiro Senhor Bom Jesus). Também considera
+ * Sexta-feira Santa e Corpus Christi.
  * Para fechar em pontos facultativos (ex.: Carnaval), inclua a data em FECHAMENTOS_EXTRAS ("AAAA-MM-DD").
  */
 export const FECHAMENTOS_EXTRAS: Record<string, string> = {
@@ -85,7 +86,8 @@ export function feriados(ano: number): Record<string, string> {
     [`${ano}-04-21`]: "Tiradentes", [`${ano}-05-01`]: "Dia do Trabalho", [iso(addDays(p, 60))]: "Corpus Christi",
     [`${ano}-07-09`]: "Revolução Constitucionalista", [`${ano}-09-07`]: "Independência",
     [`${ano}-10-12`]: "Nossa Senhora Aparecida", [`${ano}-11-02`]: "Finados", [`${ano}-11-15`]: "Proclamação da República",
-    [`${ano}-11-20`]: "Consciência Negra", [`${ano}-12-08`]: "Aniversário de Guarulhos", [`${ano}-12-25`]: "Natal",
+    [`${ano}-11-20`]: "Consciência Negra", [`${ano}-12-25`]: "Natal",
+    [`${ano}-06-08`]: "Aniversário de Arujá", [`${ano}-08-06`]: "Dia do Senhor Bom Jesus (padroeiro de Arujá)",
     ...Object.fromEntries(Object.entries(FECHAMENTOS_EXTRAS).filter(([k]) => k.startsWith(String(ano)))),
   };
 }

@@ -192,7 +192,7 @@ Se algum passo falhar, anote a mensagem exibida: os erros do sistema dizem o que
 |---|---|
 | PDF | Gerado pela impressão do navegador ("Salvar como PDF"), que funciona em computador, Android e iPhone. Não há botão de download direto |
 | Offline | Fotos ficam na fila e sobem ao voltar a internet; textos ficam como rascunho no aparelho. Gravar etapas do check-in exige conexão |
-| Indicador "aberto agora" | Reconhece feriados nacionais, de SP e de Guarulhos. Pontos facultativos (ex.: Carnaval) entram em `FECHAMENTOS_EXTRAS` em `web/src/lib/oficina.ts` |
+| Indicador "aberto agora" | Reconhece feriados nacionais, de SP e de Arujá. Pontos facultativos (ex.: Carnaval) entram em `FECHAMENTOS_EXTRAS` em `web/src/lib/oficina.ts` |
 | Senha errada no login | Fica nos logs do Supabase Auth, não na auditoria do sistema |
 | Edge Functions | Publicadas e verificadas no código, mas só são exercitadas de verdade no seu primeiro login (teste de aceite) |
 | Avisos do Supabase sobre funções chamáveis por usuários logados | Intencionais: cada função verifica quem chama |
