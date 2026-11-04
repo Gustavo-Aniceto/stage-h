@@ -1,56 +1,26 @@
-import { Component, lazy, Suspense, useState, type ReactNode } from "react";
-
-// O three.js só é baixado quando a pessoa pede o 3D (botão "Girar 360°"): login, check-in, OS e
-// documentos não carregam nada de 3D, e o painel/site abrem rápido com a foto.
-const Civic3D = lazy(() => import("./Civic3D"));
-
-/** Foto do Civic EK roxo da identidade Stage H (recorte da arte de referência, sem textos de terceiros). */
-export const CIVIC_POSTER = "/brand/civic-ek-stage-h.webp";
-
-class Boundary extends Component<{ children: ReactNode }, { failed: boolean }> {
-  state = { failed: false };
-  static getDerivedStateFromError() { return { failed: true }; }
-  render() {
-    return this.state.failed
-      ? <div className="sh-stage-msg" role="status">Visualizador 3D indisponível agora. O restante do sistema funciona normalmente.</div>
-      : this.props.children;
-  }
-}
+/** Arte do hero da Stage H: garagem roxa com o Honda Civic EK 2000 e rodas BBS prata (imagem completa, sem 3D). */
+export const HERO_IMG = "/brand/hero-stage-h.webp";
+/** Recorte para telas estreitas: mantém o carro grande quando o texto vai para cima da imagem. */
+export const HERO_IMG_MOBILE = "/brand/hero-stage-h-mobile.webp";
 
 /**
- * Palco do Honda Civic. Começa na foto (imagem real, sem fingir 3D); "Girar 360°" abre o
- * visualizador 3D interativo. Falhas no 3D nunca derrubam a página e dá para voltar à foto.
+ * Imagem de fundo do hero. `stackAt` é a largura de tela (px) abaixo da qual o hero empilha
+ * (texto em cima, imagem embaixo) e troca para o recorte mobile; precisa bater com os
+ * breakpoints `.sh-hero` / `.sh-hero-site` do theme-stageh.css.
  */
-export function CivicStage({ className = "" }: { className?: string }) {
-  const [modo, setModo] = useState<"foto" | "3d">("foto");
+export function CivicStage({ className = "", stackAt = 1200 }: { className?: string; stackAt?: number }) {
   return (
-    <div className={`sh-stage ${className}`.trim()}>
-      {modo === "foto" ? (
-        <>
-          <img
-            className="sh-poster"
-            src={CIVIC_POSTER}
-            alt="Honda Civic EK 2000 roxo com rodas BBS prata na garagem da Stage H"
-            width={1299}
-            height={688}
-            decoding="async"
-            draggable={false}
-          />
-          <button type="button" className="sh-360" onClick={() => setModo("3d")} title="Abrir o visualizador 3D e girar o Civic">
-            <span>360°</span>
-            <small>Girar 360°</small>
-          </button>
-        </>
-      ) : (
-        <>
-          <Boundary>
-            <Suspense fallback={<div className="sh-stage-msg" role="status">Carregando Civic 3D…</div>}>
-              <Civic3D />
-            </Suspense>
-          </Boundary>
-          <button type="button" className="sh-photo-btn" onClick={() => setModo("foto")}>Ver foto</button>
-        </>
-      )}
-    </div>
+    <picture className={`sh-stage ${className}`.trim()}>
+      <source media={`(max-width: ${stackAt}px)`} srcSet={HERO_IMG_MOBILE} width={1046} height={504} />
+      <img
+        className="sh-poster"
+        src={HERO_IMG}
+        alt="Honda Civic EK 2000 roxo com rodas BBS prata na garagem da Stage H"
+        width={1416}
+        height={504}
+        decoding="async"
+        draggable={false}
+      />
+    </picture>
   );
 }

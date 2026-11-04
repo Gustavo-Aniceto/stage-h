@@ -8,17 +8,17 @@ export function SiteHome() {
   return (
     <>
       <section className="sh-hero sh-hero-site" aria-labelledby="h-site">
+        <CivicStage stackAt={1100} />
         <div className="sh-hero-copy">
           <p className={`open-sign${status.open ? " is-open" : ""}`}><span aria-hidden />{status.text}</p>
           <h1 id="h-site" className="sh-title">{OFICINA.nome}</h1>
-          <p className="sh-sub">Especialistas em <em>{OFICINA.especialidade}</em> e manutenção em todas as marcas.</p>
+          <p className="sh-sub">Especialistas em <em>{OFICINA.especialidade}</em><br className="sh-br" /> e manutenção em todas as marcas.</p>
           <p className="hero-lead">Diagnóstico antes de trocar peça, orçamento aprovado antes de executar.</p>
           <div className="sh-cta">
             <Link className="btn btn-primary btn-lg" to="/contato">Pedir orçamento</Link>
             <a className="btn btn-secondary btn-lg" href={whatsappLink()} target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
           </div>
         </div>
-        <CivicStage className="sh-hero-stage" />
       </section>
 
       <dl className="sh-info sh-info-site" aria-label="Dados da oficina">

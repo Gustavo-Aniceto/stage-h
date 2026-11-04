@@ -1,7 +1,0 @@
-Coloque aqui o modelo 3D do Honda Civic EK roxo com o nome exato:  civic-ek.glb
-
-- Formato: glTF binário (.glb). Evite compressão Draco/Meshopt (o visualizador não carrega os decodificadores).
-- Frente do carro virada para +X (se o arquivo vier com o comprimento ao longo de Z, o visualizador gira sozinho).
-- O visualizador centraliza, apoia no chão e ajusta a escala automaticamente (comprimento de 4,45 u).
-- Dica de tamanho: até ~15 MB funciona bem no celular. Reduza texturas para 2K.
-- Sem este arquivo, o sistema usa um Civic 3D procedural PROVISÓRIO (mais simples que a imagem de referência).
